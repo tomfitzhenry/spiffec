@@ -47,6 +47,10 @@
         { pkgs, system }:
         {
           spiffec = self.packages.${system}.spiffec;
+          spire = import ./tests/spire.nix {
+            inherit pkgs;
+            spiffec = self.packages.${system}.spiffec;
+          };
         }
       );
     };
